@@ -8,7 +8,7 @@ import java.util.List;
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 import com.shatteredpixel.shatteredpixeldungeon.items.Item;
-import com.shatteredpixel.shatteredpixeldungeon.items.MysticalOrb;
+import com.shatteredpixel.shatteredpixeldungeon.items.MysticalCard;
 import com.shatteredpixel.shatteredpixeldungeon.items.potions.*;
 import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.*;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
@@ -72,8 +72,8 @@ static Class<? extends Item> curSelection = null;
     public WndSelectEffect(String action) {
         GLog.w(Messages.get(this, action + "_text"));
         IconTitle titlebar = new IconTitle();
-        titlebar.icon(new ItemSprite(ItemSpriteSheet.MYSTICAL_ORB, null));
-        titlebar.label(Messages.get(MysticalOrb.class, "name"));
+        titlebar.icon(new ItemSprite(ItemSpriteSheet.MYSTICAL_CARD, null));
+        titlebar.label(Messages.get(MysticalCard.class, "name"));
         titlebar.setRect(0, 0, WIDTH, 0);
         add(titlebar);
 
@@ -101,7 +101,7 @@ static Class<? extends Item> curSelection = null;
         };
 
         choose.visible = false;
-        choose.icon(new ItemSprite(new MysticalOrb()));
+        choose.icon(new ItemSprite(new MysticalCard()));
         choose.enable(false);
         choose.setRect(0, 95, WIDTH, 20);
         add(choose);
@@ -151,6 +151,6 @@ static Class<? extends Item> curSelection = null;
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        new MysticalOrb().collect();
+        new MysticalCard().collect();
     }
 }
