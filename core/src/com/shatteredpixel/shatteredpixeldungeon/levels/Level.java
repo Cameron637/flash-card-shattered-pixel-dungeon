@@ -48,7 +48,7 @@ import com.shatteredpixel.shatteredpixeldungeon.effects.particles.WindParticle;
 import com.shatteredpixel.shatteredpixeldungeon.items.Generator;
 import com.shatteredpixel.shatteredpixeldungeon.items.Heap;
 import com.shatteredpixel.shatteredpixeldungeon.items.Item;
-import com.shatteredpixel.shatteredpixeldungeon.items.MysticalOrb;
+import com.shatteredpixel.shatteredpixeldungeon.items.MysticalCard;
 import com.shatteredpixel.shatteredpixeldungeon.items.Stylus;
 import com.shatteredpixel.shatteredpixeldungeon.items.Torch;
 import com.shatteredpixel.shatteredpixeldungeon.items.artifacts.DriedRose;
@@ -171,7 +171,7 @@ public abstract class Level implements Bundlable {
 		if (!(Dungeon.bossLevel() || Dungeon.depth == 21) /* final shop floor */) {
 
 			for (int i = 0; i < ORBS_TO_SPAWN; ++i) {
-				addItemToSpawn(new MysticalOrb());
+				addItemToSpawn(new MysticalCard());
 			}
 
 			if (Dungeon.isChallenged(Challenges.NO_FOOD)) {

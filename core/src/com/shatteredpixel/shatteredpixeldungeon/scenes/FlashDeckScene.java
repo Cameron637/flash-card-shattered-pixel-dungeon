@@ -24,6 +24,7 @@ package com.shatteredpixel.shatteredpixeldungeon.scenes;
 import java.io.File;
 
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import com.shatteredpixel.shatteredpixeldungeon.Chrome;
 import com.shatteredpixel.shatteredpixeldungeon.SPDSettings;
@@ -37,6 +38,7 @@ import com.shatteredpixel.shatteredpixeldungeon.ui.Icons;
 import com.shatteredpixel.shatteredpixeldungeon.ui.RenderedTextBlock;
 import com.shatteredpixel.shatteredpixeldungeon.ui.StyledButton;
 import com.shatteredpixel.shatteredpixeldungeon.ui.Window;
+import com.shatteredpixel.shatteredpixeldungeon.utils.GLog;
 import com.watabou.noosa.Camera;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.NinePatch;
@@ -210,6 +212,10 @@ public class FlashDeckScene extends PixelScene {
 		protected void onClick() {
 			if (deckName == null) {
 				JFileChooser fc = new JFileChooser();
+				fc.setDialogTitle(Messages.get(FlashDeckScene.class, "new"));
+				fc.setAcceptAllFileFilterUsed(false);
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("JSON Files", "json");
+				fc.addChoosableFileFilter(filter);
 
 				int returnVal = fc.showOpenDialog(null);
  
@@ -221,7 +227,8 @@ public class FlashDeckScene extends PixelScene {
 					try {
 						FlashDecks.importFromFile(file);
 					} catch (Exception e) {
-						//TODO: handle exception
+						System.out.println(e.getLocalizedMessage());
+						GLog.n(e.getLocalizedMessage());
 					}
 					FlashDeckScene.this.create();
 				}

@@ -8,11 +8,11 @@ import com.shatteredpixel.shatteredpixeldungeon.windows.WndFlashCardQuestion;
 
 import java.util.ArrayList;
 
-public class MysticalOrb extends Item {
+public class MysticalCard extends Item {
 	private static final String AC_READ = "READ";
 
 	{
-		image = ItemSpriteSheet.MYSTICAL_ORB;
+		image = ItemSpriteSheet.MYSTICAL_CARD;
 		stackable = true;
 		defaultAction = AC_READ;
 		bones = true;

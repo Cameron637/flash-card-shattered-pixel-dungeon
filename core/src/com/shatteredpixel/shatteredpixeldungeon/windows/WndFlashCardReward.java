@@ -8,7 +8,7 @@ import com.shatteredpixel.shatteredpixeldungeon.ui.RenderedTextBlock;
 import com.shatteredpixel.shatteredpixeldungeon.ui.Window;
 import com.shatteredpixel.shatteredpixeldungeon.utils.GLog;
 
-import com.shatteredpixel.shatteredpixeldungeon.items.MysticalOrb;
+import com.shatteredpixel.shatteredpixeldungeon.items.MysticalCard;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 
 public class WndFlashCardReward extends Window {
@@ -29,12 +29,12 @@ public class WndFlashCardReward extends Window {
         instance = this;
 
         IconTitle titlebar = new IconTitle();
-        MysticalOrb orb;
+        MysticalCard card;
         try {
-            orb = (MysticalOrb) MysticalOrb.class.getDeclaredConstructor().newInstance();
-            titlebar.icon(new ItemSprite(orb));
-            titlebar.label( Messages.titleCase(orb.name()) );
-            orb = null;
+            card = (MysticalCard) MysticalCard.class.getDeclaredConstructor().newInstance();
+            titlebar.icon(new ItemSprite(card));
+            titlebar.label( Messages.titleCase(card.name()) );
+            card = null;
             titlebar.setRect( 0, 0, WIDTH, 0 );
 		    add( titlebar );
         } catch (Exception e) {
