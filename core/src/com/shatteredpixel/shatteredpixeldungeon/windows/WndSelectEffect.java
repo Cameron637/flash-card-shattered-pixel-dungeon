@@ -24,7 +24,8 @@ import com.watabou.noosa.Image;
 
 public class WndSelectEffect extends Window {
 	private static final String AC_USE_AS_POTION = "POTION";
-	private static final String AC_USE_AS_SCROLL = "SCROLL";
+    // private static final String AC_USE_AS_SCROLL = "SCROLL";
+    public static final String AC_DROP		= "DROP";
 
     private static final int WIDTH = 120;
     private static final int BTN_SIZE = 20;
@@ -91,6 +92,7 @@ static Class<? extends Item> curSelection = null;
                 try{
                     Item selectedItem = (Item) curSelection.getDeclaredConstructor().newInstance();
                     selectedItem.setTemp(true);
+                    GLog.w(selectedItem.actions(Dungeon.hero).toString());
                     selectedItem.execute(Dungeon.hero);
                 }
                 catch (Exception e)
